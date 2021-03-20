@@ -1,0 +1,23 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+[build]
+  publish = "build/"
+
+  # Default build command.
+  command = "yarn build"
+
+# Production context: all deploys from the Production branch set in your site’s
+# deploy contexts will inherit these settings.
+[context.production]
+  command = "yarn build"
+
+# Deploy Preview context: all deploys generated from a pull/merge request will
+# inherit these settings.
+[context.deploy-preview]
+  publish = "dist/"
+
+# Branch Deploy context: all deploys that are not from a pull/merge request or
+# from the Production branch will inherit these settings.
+[context.branch-deploy]
+  command = "yarn build"
+  publish = "build/"
