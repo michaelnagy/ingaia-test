@@ -4,6 +4,35 @@ import { normalize } from "styled-normalize";
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
+  
+  body {
+    font-family: "Nunito", sans-serif;
+  }
+`;
+
+//tipography
+export const nunito16 = css`
+  font-family: "Nunito";
+  font-style: bold;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+`;
+
+export const nunito16Bold = css`
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+`;
+
+export const nunito28 = css`
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 38px;
 `;
 
 // flexbox helpers

@@ -1,8 +1,8 @@
 import React from "react";
 import { SearchWrapper, Input } from "./styles";
 
-function SearchInput(props) {
-  return <Input />;
+function SearchInput() {
+  return <Input placeholder="Search characters" />;
 }
 
 function SearchButton(props) {

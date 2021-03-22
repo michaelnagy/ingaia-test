@@ -7,7 +7,6 @@
     "@testing-library/react": "11.1.0",
     "@testing-library/user-event": "12.1.10",
     "eslint": "7.22.0",
-    "husky": "5.1.3",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-query": "3.13.0",
@@ -32,17 +31,17 @@
       "plugin:styled-components-a11y/recommended"
     ]
   },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "jest --findRelatedTests"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "src/**/*.js": [
-      "eslint --fix",
-      "jest --findRelatedTests",
-      "prettier --write"
-    ]
   },
   "browserslist": {
     "production": [
@@ -60,6 +59,7 @@
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-prettier": "3.3.1",
     "eslint-plugin-styled-components-a11y": "0.0.34",
+    "husky": "5.2.0",
     "jest-styled-components": "7.0.3",
     "lint-staged": "10.5.4",
     "prettier": "2.2.1"
