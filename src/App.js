@@ -1,24 +1,12 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { Container } from "./globalStyles";
+import logo from "./assets/logo.png";
+import { Container, Header } from "./globalStyles";
 
 function App() {
   return (
     <Container>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header>
+        <img src={logo} alt="logo" />
+      </Header>
     </Container>
   );
 }

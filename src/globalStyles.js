@@ -24,6 +24,7 @@ export const tablet = `@media (max-width: 991.98px)`;
 
 export const Container = styled.div`
   width: 100%;
+  height: 100vh;
   ${flexColumn};
   background-color: #1e1e1e;
   background-image: url(${backgroundImage});
@@ -31,4 +32,13 @@ export const Container = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+`;
+
+export const Header = styled.header`
+  width: 100%;
+  ${flexRow};
+  justify-content: center;
+  img {
+    max-width: 502px;
+  }
 `;
