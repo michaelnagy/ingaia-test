@@ -40,5 +40,7 @@ export const Header = styled.header`
   justify-content: center;
   img {
     max-width: 502px;
+    overflow: auto;
+    margin: 20px 40px 0 40px;
   }
 `;

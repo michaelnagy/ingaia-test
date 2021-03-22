@@ -34,8 +34,15 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "jest --findRelatedTests",
+      "prettier --write"
+    ]
   },
   "browserslist": {
     "production": [
@@ -54,7 +61,7 @@
     "eslint-plugin-prettier": "3.3.1",
     "eslint-plugin-styled-components-a11y": "0.0.34",
     "jest-styled-components": "7.0.3",
-    "prettier": "2.2.1",
-    "pretty-quick": "3.1.0"
+    "lint-staged": "10.5.4",
+    "prettier": "2.2.1"
   }
 }

@@ -1,5 +1,6 @@
 import logo from "./assets/logo.png";
 import { Container, Header } from "./globalStyles";
+import Search from "./components/Search/Search";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Header>
         <img src={logo} alt="logo" />
       </Header>
+      <Search />
     </Container>
   );
 }
