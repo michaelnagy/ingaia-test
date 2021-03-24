@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { flexRow, mobile, tablet, nunito16Bold } from "../../globalStyles";
+import { flexRow, nunito16Bold } from "../../globalStyles";
 
 export const SearchWrapper = styled.div`
   ${flexRow};
@@ -20,4 +20,12 @@ export const Input = styled.input`
   ::placeholder {
     color: #9f9f9f;
   }
+`;
+
+export const Button = styled.button`
+  border: 2px solid #ffffff;
+  color: white;
+  border-radius: 8px;
+  background-color: transparent;
+  padding: 10px 17px;
 `;
