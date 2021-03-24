@@ -2,34 +2,29 @@ import React from "react";
 import { SearchWrapper, Input, Button } from "./styles";
 import { SearchContext } from "../../context";
 
-function SearchInput() {
-  const [search, setSearch] = React.useContext(SearchContext);
-  console.log("------------------------------------");
-  console.log(search, setSearch);
-  console.log("------------------------------------");
+export function SearchButton(props) {
   return (
-    <Input
-      placeholder="Search characters"
-      value={search}
-      onChange={(e) => setSearch(e.target.value)}
-    />
-  );
-}
-
-function SearchButton(props) {
-  return (
-    <Button type="button" onClick={() => null}>
+    <Button type="button" {...props}>
       Search
     </Button>
   );
 }
 
+function SearchInput(props) {
+  return <Input placeholder="Search characters" {...props} />;
+}
+
 function Search() {
+  const [inputValue, setInputValue] = React.useState("");
+  const [, setSearch] = React.useContext(SearchContext);
   return (
     <>
       <SearchWrapper>
-        <SearchInput />
-        <SearchButton />
+        <SearchInput
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <SearchButton onClick={() => setSearch(inputValue)} />
       </SearchWrapper>
     </>
   );

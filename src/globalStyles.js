@@ -47,9 +47,9 @@ export const flexColumn = css`
 `;
 
 // media query helpers
-export const mobile = `@media (max-width: 767.98px)`;
+export const mobile = `@media (max-width: 320px)`;
 
-export const tablet = `@media (max-width: 991.98px)`;
+export const tablet = `@media (max-width: 768px)`;
 
 export const Container = styled.div`
   width: 100%;

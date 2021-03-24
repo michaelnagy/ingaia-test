@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { flexRow, nunito16Bold } from "../../globalStyles";
+import { flexRow, nunito16Bold, mobile } from "../../globalStyles";
 
 export const SearchWrapper = styled.div`
   ${flexRow};
   justify-content: center;
   margin-top: 74px;
+  padding: 0 32px;
 `;
 
 export const Input = styled.input`
@@ -17,6 +18,10 @@ export const Input = styled.input`
   background-color: transparent;
   margin-right: 16px;
   padding-left: 14px;
+  ${mobile} {
+    padding-left: 8px;
+  }
+  overflow: auto;
   ::placeholder {
     color: #9f9f9f;
   }
