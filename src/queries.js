@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useQuery, QueryClient, QueryClientProvider } from "react-query";
 import { request, gql } from "graphql-request";
 
@@ -12,33 +11,29 @@ export const QueryProvider = ({ children }) => {
   );
 };
 
-export function useCharacters(search, page) {
+export function useCharacters(search = { name: "" }, page) {
   return useQuery(["characters", page, search], async () => {
-    const {
-      posts: { data },
-    } = await request(
+    const { characters } = await request(
       endpoint,
       gql`
-        query{
-            characters(page: ${page}, filter: ${search}) {
-      info {
-        count
-        pages
-        next
-        prev
-      }
-      results {
-        name
-        type
-      }
-    }
+        query characters($page: Int, $filter: FilterCharacter) {
+          characters(page: $page, filter: $filter) {
+            info {
+              count
+              pages
+              next
+              prev
+            }
+            results {
+              name
+              type
+              image
+            }
+          }
         }
-    
-  
-      `
+      `,
+      { page: 1, filter: { name: search } }
     );
-    return data;
+    return characters;
   });
 }
-
-// const { status, data, error, isFetching } = usePosts();

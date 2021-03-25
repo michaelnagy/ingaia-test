@@ -39,7 +39,7 @@
     "src/**/*.{js,jsx,ts,tsx,json,md}": [
       "eslint --fix",
       "prettier --write",
-      "jest --findRelatedTests"
+      "CI=true react-scripts test --passWithNoTests"
     ]
   },
   "husky": {
@@ -64,11 +64,11 @@
     "eslint": "7",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-prettier": "3.3.1",
-    "husky": "5.2.0",
+    "husky": "4",
     "jest-styled-components": "7.0.3",
     "lint-staged": "10.5.4",
     "prettier": "2.2.1",
     "react-is": "16.8.0",
-    "typescript": "^4"
+    "typescript": "4"
   }
 }
