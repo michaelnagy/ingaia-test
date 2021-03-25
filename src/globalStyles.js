@@ -44,6 +44,14 @@ export const nunito20 = css`
   line-height: 25px;
 `;
 
+export const nunito24 = css`
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+`;
+
 export const nunito28 = css`
   font-family: "Nunito";
   font-style: normal;
