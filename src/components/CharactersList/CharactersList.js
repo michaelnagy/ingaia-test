@@ -1,5 +1,11 @@
 import React from "react";
-import { CharacterWrapper, CharactersListWrapper } from "./styles";
+import {
+  CharacterWrapper,
+  CharactersListWrapper,
+  NameWrapper,
+  NameTitle,
+  NameSubTitle,
+} from "./styles";
 import { SearchContext } from "../../context";
 import { useCharacters } from "../../queries";
 
@@ -7,8 +13,10 @@ export function CharacterCard({ type, name, image }) {
   return (
     <CharacterWrapper>
       <img src={image} alt={name} />
-      <span>{name}</span>
-      <span>{type}</span>
+      <NameWrapper>
+        <NameTitle>{name}</NameTitle>
+        <NameSubTitle>{type}</NameSubTitle>
+      </NameWrapper>
     </CharacterWrapper>
   );
 }

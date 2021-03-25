@@ -11,9 +11,18 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 //tipography
+
+export const nunito12 = css`
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+`;
+
 export const nunito16 = css`
   font-family: "Nunito";
-  font-style: bold;
+  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
@@ -25,6 +34,14 @@ export const nunito16Bold = css`
   font-weight: bold;
   font-size: 16px;
   line-height: 22px;
+`;
+
+export const nunito20 = css`
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
 `;
 
 export const nunito28 = css`
@@ -53,7 +70,8 @@ export const tablet = `@media (max-width: 768px)`;
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   ${flexColumn};
   background-color: #1e1e1e;
   background-image: url(${backgroundImage});

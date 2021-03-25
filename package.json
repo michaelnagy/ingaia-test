@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.1.0",
     "@testing-library/user-event": "12.1.10",
+    "cross-env": "7.0.3",
     "graphql": "15",
     "graphql-request": "3.4.0",
     "react": "16",
@@ -39,7 +40,7 @@
     "src/**/*.{js,jsx,ts,tsx,json,md}": [
       "eslint --fix",
       "prettier --write",
-      "CI=true react-scripts test --passWithNoTests"
+      "cross-env CI=true react-scripts test --passWithNoTests"
     ]
   },
   "husky": {
