@@ -5,7 +5,7 @@ import { useCharacters } from "../../queries";
 import { SearchContext } from "../../context";
 
 const mockData = {
-  data: { results: [{ name: "Morty", image: "" }] },
+  data: { results: [{ name: "Morty", image: "" }], info: { count: 40 } },
 };
 
 const renderWithContext = () => {
@@ -41,5 +41,13 @@ describe("CharacterList Component", () => {
     renderWithContext();
     const linkElement = screen.getByText("Morty");
     expect(linkElement).toBeInTheDocument();
+  });
+  describe("Pagination Component", () => {
+    it("renders", () => {
+      useCharacters.mockImplementation(() => mockData);
+      renderWithContext();
+      const pagination = screen.getByText("1");
+      expect(pagination).toBeInTheDocument();
+    });
   });
 });

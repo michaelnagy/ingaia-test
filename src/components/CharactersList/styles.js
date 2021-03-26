@@ -9,6 +9,12 @@ import {
   tablet,
 } from "../../globalStyles";
 
+export const CharactersListContainer = styled.div`
+  ${flexColumn};
+  justify-content: center;
+  align-items: center;
+`;
+
 export const CharactersListWrapper = styled.ul`
   ${flexRow};
   flex-wrap: wrap;
@@ -90,4 +96,25 @@ export const LoadingCard = styled.div`
 
 export const LoadingContent = styled.div`
   ${flexColumn};
+`;
+
+export const PaginationWrapper = styled.div`
+  ${flexRow};
+  color: white;
+  margin-top: 60px;
+  margin-bottom: 60px;
+`;
+
+export const PaginationList = styled.ul`
+  ${flexRow};
+  padding: 0;
+`;
+
+export const Page = styled.li`
+  ${flexRow};
+  ${nunito20};
+  font-weight: normal;
+  margin: 0 20px;
+  ${({ isCurrentPage }) => !isCurrentPage && `cursor: pointer;`};
+  ${({ isCurrentPage }) => isCurrentPage && `color: #CBD736`};
 `;

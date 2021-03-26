@@ -34,7 +34,7 @@ export function useCharacters(search = { name: "" }, page) {
             }
           }
         `,
-        { page: 1, filter: { name: search } }
+        { page: page, filter: { name: search } }
       );
       return characters;
     },
