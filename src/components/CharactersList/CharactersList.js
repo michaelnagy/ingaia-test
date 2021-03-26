@@ -13,6 +13,8 @@ import {
 import Loading from "./Loading";
 import { SearchContext } from "../../context";
 import { useCharacters } from "../../queries";
+import ArrowRight from "../Icons/ArrowRight";
+import ArrowLeft from "../Icons/ArrowLeft";
 
 export function CharacterCard({ type, name, image }) {
   return (
@@ -27,10 +29,15 @@ export function CharacterCard({ type, name, image }) {
 }
 
 function Pagination({ info, setPage, page }) {
-  const numberOfPages = Array.from(Array(Math.floor(info.count / 20)).keys());
+  const numberOfPages = Array.from(Array(Math.ceil(info.count / 20)).keys());
   return (
     <PaginationWrapper>
       <PaginationList>
+        <ArrowLeft
+          onClick={() => setPage(page - 1)}
+          stroke={info.prev ? "#fff" : "#909090"}
+          prev={info.prev}
+        />
         {numberOfPages.map((value) => {
           const isCurrentPage = value + 1 === page;
           return (
@@ -43,6 +50,11 @@ function Pagination({ info, setPage, page }) {
             </Page>
           );
         })}
+        <ArrowRight
+          onClick={() => setPage(page + 1)}
+          stroke={info.next ? "#fff" : "#909090"}
+          next={info.next}
+        />
       </PaginationList>
     </PaginationWrapper>
   );
@@ -52,7 +64,7 @@ function CharactersList() {
   const [page, setPage] = React.useState(1);
   const [search] = React.useContext(SearchContext);
   const { status, data, error, isFetching, isIdle } = useCharacters(
-    "morty",
+    search,
     page
   );
   if (isIdle) return null;

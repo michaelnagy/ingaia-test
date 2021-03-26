@@ -115,6 +115,16 @@ export const Page = styled.li`
   ${nunito20};
   font-weight: normal;
   margin: 0 20px;
+  color: #909090;
+  :hover {
+    color: ${({ isCurrentPage }) => (isCurrentPage ? `#CBD736` : `white`)};
+  }
+  :last-of-type {
+    margin-right: 40px;
+  }
+  :first-of-type {
+    margin-left: 40px;
+  }
   ${({ isCurrentPage }) => !isCurrentPage && `cursor: pointer;`};
   ${({ isCurrentPage }) => isCurrentPage && `color: #CBD736`};
 `;
