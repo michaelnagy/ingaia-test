@@ -3,6 +3,7 @@ import logo from "./assets/logo.png";
 import { Container, Header } from "./globalStyles";
 import Search from "./components/Search/Search";
 import CharactersList from "./components/CharactersList/CharactersList";
+import CharacterModal from "./components/CharacterModal/CharacterModal";
 import { SearchContextProvider } from "./context";
 import { QueryProvider } from "./queries";
 
@@ -16,6 +17,7 @@ function App() {
           </Header>
           <Search />
           <CharactersList />
+          <CharacterModal />
         </Container>
       </SearchContextProvider>
     </QueryProvider>

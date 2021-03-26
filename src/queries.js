@@ -30,6 +30,8 @@ export function useCharacters(search = { name: "" }, page) {
                 name
                 type
                 image
+                status
+                created
               }
             }
           }

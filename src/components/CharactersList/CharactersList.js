@@ -10,7 +10,7 @@ import {
   Page,
   PaginationList,
 } from "./styles";
-import Loading from "./Loading";
+import Loading from "../Loading/Loading";
 import { SearchContext } from "../../context";
 import { useCharacters } from "../../queries";
 import ArrowRight from "../Icons/ArrowRight";
