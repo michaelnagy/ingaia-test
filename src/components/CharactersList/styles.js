@@ -6,6 +6,7 @@ import {
   nunito20,
   nunito12,
   nunito24,
+  tablet,
 } from "../../globalStyles";
 
 export const CharactersListWrapper = styled.ul`
@@ -14,6 +15,9 @@ export const CharactersListWrapper = styled.ul`
   justify-content: center;
   margin-top: 74px;
   padding: 0 235px;
+  ${tablet} {
+    padding: 0;
+  }
 `;
 
 export const CharacterWrapper = styled.li`

@@ -12,28 +12,32 @@ export const QueryProvider = ({ children }) => {
 };
 
 export function useCharacters(search = { name: "" }, page) {
-  return useQuery(["characters", page, search], async () => {
-    const { characters } = await request(
-      endpoint,
-      gql`
-        query characters($page: Int, $filter: FilterCharacter) {
-          characters(page: $page, filter: $filter) {
-            info {
-              count
-              pages
-              next
-              prev
-            }
-            results {
-              name
-              type
-              image
+  return useQuery(
+    ["characters", page, search],
+    async () => {
+      const { characters } = await request(
+        endpoint,
+        gql`
+          query characters($page: Int, $filter: FilterCharacter) {
+            characters(page: $page, filter: $filter) {
+              info {
+                count
+                pages
+                next
+                prev
+              }
+              results {
+                name
+                type
+                image
+              }
             }
           }
-        }
-      `,
-      { page: 1, filter: { name: search } }
-    );
-    return characters;
-  });
+        `,
+        { page: 1, filter: { name: search } }
+      );
+      return characters;
+    },
+    { staleTime: 1000 * 60, enabled: !!search }
+  );
 }

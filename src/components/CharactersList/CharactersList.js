@@ -24,17 +24,18 @@ export function CharacterCard({ type, name, image }) {
 
 function CharactersList() {
   const [search] = React.useContext(SearchContext);
-  const { status, data, error, isFetching } = useCharacters(search, 1);
+  const { status, data, error, isFetching, isIdle } = useCharacters(search, 1);
+  if (isIdle) return null;
   if (isFetching) return <Loading />;
   if (status === "error") return <h1>{error.message}</h1>;
   return (
     <CharactersListWrapper>
-      {data.results.map(({ image, name, type }) => (
+      {data.results.map((index, { image, name, type }) => (
         <CharacterCard
           image={image}
           name={name}
           type={type}
-          key={`card-${name}`}
+          key={`card-${index}`}
         />
       ))}
     </CharactersListWrapper>
