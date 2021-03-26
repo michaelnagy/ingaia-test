@@ -28,12 +28,13 @@ export function CharacterCard({ type, name, image }) {
   );
 }
 
-function Pagination({ info, setPage, page }) {
+export function Pagination({ info, setPage, page }) {
   const numberOfPages = Array.from(Array(Math.ceil(info.count / 20)).keys());
   return (
     <PaginationWrapper>
       <PaginationList>
         <ArrowLeft
+          data-testid="arrow-left"
           onClick={() => setPage(page - 1)}
           stroke={info.prev ? "#fff" : "#909090"}
           prev={info.prev}
@@ -51,6 +52,7 @@ function Pagination({ info, setPage, page }) {
           );
         })}
         <ArrowRight
+          data-testid="arrow-right"
           onClick={() => setPage(page + 1)}
           stroke={info.next ? "#fff" : "#909090"}
           next={info.next}

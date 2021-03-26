@@ -1,11 +1,16 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import CharactersList from "./CharactersList";
+import { Pagination } from "./CharactersList";
 import { useCharacters } from "../../queries";
 import { SearchContext } from "../../context";
 
 const mockData = {
-  data: { results: [{ name: "Morty", image: "" }], info: { count: 40 } },
+  data: {
+    results: [{ name: "Morty", image: "" }],
+    info: { next: 2, prev: null, count: 40 },
+  },
 };
 
 const renderWithContext = () => {
@@ -48,6 +53,15 @@ describe("CharacterList Component", () => {
       renderWithContext();
       const pagination = screen.getByText("1");
       expect(pagination).toBeInTheDocument();
+    });
+    it("tests arrow click", () => {
+      const mockCallback = jest.fn();
+      render(
+        <Pagination info={mockData.data.info} setPage={mockCallback} page={1} />
+      );
+      const arrowRight = screen.getByTestId("arrow-right");
+      userEvent.click(arrowRight);
+      expect(mockCallback).toHaveBeenCalledTimes(1);
     });
   });
 });
