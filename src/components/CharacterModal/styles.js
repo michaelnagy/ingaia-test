@@ -7,6 +7,9 @@ import {
   nunito14,
   nunito18,
   nunito28,
+  nunito16Bold,
+  nunito20,
+  nunito12,
   color,
 } from "../../globalStyles";
 
@@ -63,16 +66,59 @@ export const CharactersPageContainer = styled.div`
 `;
 
 export const CharacterPageCard = styled.div`
+  position: relative;
   width: 70%;
   flex: 1.5;
-  filter: blur(130px);
-  background-color: ${color.transparentGray};
+  background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(30px);
   border-radius: 16px 0 0 16px;
+  display: flex;
+  align-items: center;
 `;
 
 export const CharacterInfo = styled.div`
   background-color: rgba(0, 0, 0, 0.95);
   flex: 2.6;
   border-radius: 0 16px 16px 0;
+  overflow: scroll;
+`;
+
+export const CharacterWrapper = styled.li`
+  position: relative;
+  margin: 12px;
+  ${nunito16Bold};
+  ${flexColumn};
+  justify-content: center;
+  width: 100%;
+  height: 90%;
+  border: 2px solid #606060;
+  border-radius: 8px;
+  overflow: hidden;
+  ${flexRow};
+  justify-content: center;
+  align-items: center;
+  margin-left: -20%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+export const NameWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: ${color.transparentGray};
+  backdrop-filter: blur(23px);
+  color: white;
+`;
+
+export const NameTitle = styled.div`
+  ${nunito20};
+  padding: 7px 7px 0 7px;
+`;
+
+export const NameSubTitle = styled.div`
+  ${nunito12};
+  padding: 0 7px 7px 7px;
 `;

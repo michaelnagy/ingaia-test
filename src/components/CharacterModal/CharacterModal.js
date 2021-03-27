@@ -10,22 +10,26 @@ import {
   InformationH3,
   InformationSmall,
   About,
+  CharacterWrapper,
+  NameWrapper,
+  NameTitle,
+  NameSubTitle,
 } from "./styles";
 // import Loading from "../../components/Loading/Loading";
 // import { SearchContext } from "../../context";
 // import { useCharacters } from "../../queries";
 
-// export function CharacterCard({ type, name, image }) {
-//   return (
-//     <CharacterWrapper>
-//       <img src={image} alt={name} />
-//       <NameWrapper>
-//         <NameTitle>{name}</NameTitle>
-//         <NameSubTitle>{type}</NameSubTitle>
-//       </NameWrapper>
-//     </CharacterWrapper>
-//   );
-// }
+export function CharacterModalCard({ type, name, image }) {
+  return (
+    <CharacterWrapper>
+      <img src={image} alt={name} />
+      <NameWrapper>
+        <NameTitle>{name}</NameTitle>
+        <NameSubTitle>{type}</NameSubTitle>
+      </NameWrapper>
+    </CharacterWrapper>
+  );
+}
 
 function CharacterModal() {
   //   const [page, setPage] = React.useState(1);
@@ -40,7 +44,13 @@ function CharacterModal() {
   return (
     <FixedWrapper>
       <CharactersPageContainer>
-        <CharacterPageCard></CharacterPageCard>
+        <CharacterPageCard>
+          <CharacterModalCard
+            image="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+            name="Morty"
+            type="ET"
+          />
+        </CharacterPageCard>
         <CharacterInfo>
           <InformationBlock>
             <InformationTitle>ABOUT</InformationTitle>
