@@ -4,13 +4,13 @@ import { Container, Header } from "./globalStyles";
 import Search from "./components/Search/Search";
 import CharactersList from "./components/CharactersList/CharactersList";
 import CharacterModal from "./components/CharacterModal/CharacterModal";
-import { SearchContextProvider } from "./context";
+import { AppContextProvider } from "./context";
 import { QueryProvider } from "./queries";
 
 function App() {
   return (
     <QueryProvider>
-      <SearchContextProvider>
+      <AppContextProvider>
         <Container>
           <Header>
             <img src={logo} alt="logo" />
@@ -19,7 +19,7 @@ function App() {
           <CharactersList />
           <CharacterModal />
         </Container>
-      </SearchContextProvider>
+      </AppContextProvider>
     </QueryProvider>
   );
 }

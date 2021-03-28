@@ -11,6 +11,7 @@ import {
   nunito20,
   nunito12,
   color,
+  mobile,
 } from "../../globalStyles";
 
 export const FixedWrapper = styled.div`
@@ -26,6 +27,9 @@ export const FixedWrapper = styled.div`
 export const InformationBlock = styled.div`
   ${flexColumn};
   padding: 65px;
+  ${mobile} {
+    padding: 20px;
+  }
 `;
 
 export const InformationTitle = styled.h1`
@@ -63,6 +67,12 @@ export const CharactersPageContainer = styled.div`
   width: 70%;
   ${flexRow};
   height: 90vh;
+  ${mobile} {
+    ${flexColumn};
+    width: 90%;
+    height: 80vh;
+    margin-top: 14vh;
+  }
 `;
 
 export const CharacterPageCard = styled.div`
@@ -74,6 +84,12 @@ export const CharacterPageCard = styled.div`
   border-radius: 16px 0 0 16px;
   display: flex;
   align-items: center;
+  ${mobile} {
+    border-radius: 16px 16px 0 0;
+    max-height: 55px;
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const CharacterInfo = styled.div`
@@ -81,9 +97,13 @@ export const CharacterInfo = styled.div`
   flex: 2.6;
   border-radius: 0 16px 16px 0;
   overflow: scroll;
+  ${mobile} {
+    border-radius: 0 0 16px 16px;
+    padding-top: 40px;
+  }
 `;
 
-export const CharacterWrapper = styled.li`
+export const CharacterWrapper = styled.div`
   position: relative;
   margin: 12px;
   ${nunito16Bold};
@@ -101,6 +121,13 @@ export const CharacterWrapper = styled.li`
   img {
     width: 100%;
     height: 100%;
+  }
+  ${mobile} {
+    margin: 0;
+    width: 170px;
+    height: 170px;
+    position: absolute;
+    top: -87px;
   }
 `;
 

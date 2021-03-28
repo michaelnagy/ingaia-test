@@ -15,10 +15,15 @@ import { SearchContext } from "../../context";
 import { useCharacters } from "../../queries";
 import ArrowRight from "../Icons/ArrowRight";
 import ArrowLeft from "../Icons/ArrowLeft";
+import { CharacterContext } from "../../context";
 
-export function CharacterCard({ type, name, image }) {
+export function CharacterCard(props) {
+  const [, setCharacter] = React.useContext(CharacterContext);
+  const {
+    character: { image, name, type },
+  } = props;
   return (
-    <CharacterWrapper>
+    <CharacterWrapper onClick={() => setCharacter(props)}>
       <img src={image} alt={name} />
       <NameWrapper>
         <NameTitle>{name}</NameTitle>
@@ -75,13 +80,8 @@ function CharactersList() {
   return (
     <CharactersListContainer>
       <CharactersListWrapper>
-        {data.results.map(({ image, name, type }, index) => (
-          <CharacterCard
-            image={image}
-            name={name}
-            type={type}
-            key={`card-${index}`}
-          />
+        {data.results.map((character, index) => (
+          <CharacterCard character={character} key={`card-${index}`} />
         ))}
       </CharactersListWrapper>
       <Pagination info={data.info} setPage={setPage} page={page} />

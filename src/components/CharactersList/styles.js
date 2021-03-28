@@ -45,6 +45,7 @@ export const CharacterWrapper = styled.li`
   img {
     width: 100%;
   }
+  cursor: pointer;
 `;
 
 export const NameWrapper = styled.div`

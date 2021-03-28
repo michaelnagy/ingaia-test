@@ -27,11 +27,34 @@ export function useCharacters(search = { name: "" }, page) {
                 prev
               }
               results {
+                id
                 name
                 type
                 image
                 status
                 created
+                species
+                gender
+                episode {
+                  air_date
+                }
+                location {
+                  name
+                  type
+                  dimension
+                  residents {
+                    name
+                  }
+                }
+
+                origin {
+                  name
+                  type
+                  dimension
+                  residents {
+                    name
+                  }
+                }
               }
             }
           }
@@ -43,3 +66,31 @@ export function useCharacters(search = { name: "" }, page) {
     { staleTime: 1000 * 60, enabled: !!search }
   );
 }
+
+// export function useCharacter(search = { name: "" }, page) {
+//   return useQuery(
+//     ["character", page, search],
+//     async () => {
+//       const { character } = await request(
+//         endpoint,
+//         gql`
+//           query character($id: Int) {
+//             character(page: $page, filter: $filter) {
+
+//               results {
+//                 name
+//                 type
+//                 image
+//                 status
+//                 created
+//               }
+//             }
+//           }
+//         `,
+//         { page: page, filter: { name: search } }
+//       );
+//       return character;
+//     },
+//     { staleTime: 1000 * 60, enabled: !!search }
+//   );
+// }
