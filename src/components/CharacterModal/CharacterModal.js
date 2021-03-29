@@ -45,8 +45,9 @@ const styled = css`
 
 function CharacterModal() {
   const [character, setCharacter] = React.useContext(CharacterContext);
-
   if (isEmpty(character)) return null;
+  const episodeNumber = character.character.episode.length - 1;
+  const episodeDate = character.character.episode[episodeNumber]["air_date"];
 
   return (
     <FixedWrapper>
@@ -66,13 +67,7 @@ function CharacterModal() {
             <About>
               {character.character.name} is a {character.character.gender}{" "}
               {character.character.species}. He is {character.character.status}.
-              Last seen in&nbsp;
-              {
-                character.character.episode[
-                  character.character.episode.length - 1
-                ]["air_date"]
-              }
-              .
+              Last seen in {episodeDate}.
             </About>
           </InformationBlock>
           <InformationBlock>
