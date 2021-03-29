@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import {
   flexRow,
   flexColumn,
@@ -14,7 +15,7 @@ import {
   mobile,
 } from "../../globalStyles";
 
-export const FixedWrapper = styled.div`
+export const FixedWrapper = styled(motion.div)`
   position: fixed;
   background: transparent;
   width: 100%;

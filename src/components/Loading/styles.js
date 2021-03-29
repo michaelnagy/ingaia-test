@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { flexColumn, nunito24 } from "../../globalStyles";
 
-export const LoadingWrapper = styled.div`
+export const LoadingWrapper = styled(motion.div)`
   ${flexColumn};
   position: fixed;
   justify-content: center;
