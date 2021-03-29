@@ -10,6 +10,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+//colors
+export const color = {
+  yellowFont: "#CBD736",
+  transparentGray: "rgba(0, 0, 0, 0.6)",
+  bluishGray: "#D3D3D3",
+};
+
 //tipography
 
 export const nunito12 = css`
@@ -18,6 +25,22 @@ export const nunito12 = css`
   font-weight: normal;
   font-size: 12px;
   line-height: 15px;
+`;
+
+export const nunito13 = css`
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+`;
+
+export const nunito14 = css`
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
 `;
 
 export const nunito16 = css`
@@ -34,6 +57,14 @@ export const nunito16Bold = css`
   font-weight: bold;
   font-size: 16px;
   line-height: 22px;
+`;
+
+export const nunito18 = css`
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24.55px;
 `;
 
 export const nunito20 = css`
@@ -98,4 +129,14 @@ export const Header = styled.header`
     overflow: auto;
     margin: 20px 40px 0 40px;
   }
+`;
+
+export const OnMobile = styled.div`
+  ${({ hide }) => hide && "display: block"};
+  ${({ show }) => show && "display: none"};
+  ${mobile} {
+    ${({ hide }) => hide && "display: none"};
+    ${({ show }) => show && "display: block"};
+  }
+  ${({ styled }) => styled}
 `;

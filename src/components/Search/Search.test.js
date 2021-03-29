@@ -2,13 +2,13 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Search, { SearchButton } from "./Search";
-import { SearchContextProvider } from "../../context";
+import { AppContextProvider } from "../../context";
 
 function renderSearch() {
   return render(
-    <SearchContextProvider>
+    <AppContextProvider>
       <Search />
-    </SearchContextProvider>
+    </AppContextProvider>
   );
 }
 
