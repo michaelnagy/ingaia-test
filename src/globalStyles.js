@@ -130,3 +130,13 @@ export const Header = styled.header`
     margin: 20px 40px 0 40px;
   }
 `;
+
+export const OnMobile = styled.div`
+  ${({ hide }) => hide && "display: block"};
+  ${({ show }) => show && "display: none"};
+  ${mobile} {
+    ${({ hide }) => hide && "display: none"};
+    ${({ show }) => show && "display: block"};
+  }
+  ${({ styled }) => styled}
+`;

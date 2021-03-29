@@ -1,4 +1,5 @@
 import React from "react";
+import { css } from "styled-components";
 import {
   FixedWrapper,
   CharactersPageContainer,
@@ -14,7 +15,11 @@ import {
   NameWrapper,
   NameTitle,
   NameSubTitle,
+  CloseModal,
 } from "./styles";
+import Close from "../Icons/Close";
+import People from "../Icons/People";
+import { OnMobile } from "../../globalStyles";
 import { CharacterContext } from "../../context";
 
 const isEmpty = (obj) =>
@@ -32,22 +37,27 @@ export function CharacterModalCard({ name, image, type }) {
   );
 }
 
+const styled = css`
+  left: 0px;
+  position: absolute;
+  top: -95px;
+`;
+
 function CharacterModal() {
-  //   const [page, setPage] = React.useState(1);
-  const [character] = React.useContext(CharacterContext);
-  //   const { status, data, error, isFetching, isIdle } = useCharacters(
-  //     search,
-  //     page
-  //   );
-  //   if (isIdle) return null;
-  //   if (isFetching) return <Loading />;
-  //   if (status === "error") return <h1>{error.message}</h1>;
+  const [character, setCharacter] = React.useContext(CharacterContext);
+
   if (isEmpty(character)) return null;
 
   return (
     <FixedWrapper>
       <CharactersPageContainer>
         <CharacterPageCard>
+          <OnMobile hide>
+            <CloseModal onClick={() => setCharacter({})}>Close</CloseModal>
+          </OnMobile>
+          <OnMobile show styled={styled}>
+            <Close onClick={() => setCharacter({})} />
+          </OnMobile>
           <CharacterModalCard {...character.character} />
         </CharacterPageCard>
         <CharacterInfo>
@@ -70,10 +80,11 @@ function CharacterModal() {
             <InformationSmall>Planet</InformationSmall>
             <InformationH2>{character.character.origin.name}</InformationH2>
             <InformationH3>
-              {character.character.origin.dimension}
+              {character.character.origin?.dimension}
             </InformationH3>
             <InformationSmall>
-              {character.character.origin.residents.length} residents
+              <People /> {character.character.origin?.residents?.length}{" "}
+              residents
             </InformationSmall>
           </InformationBlock>
           <InformationBlock>
@@ -86,7 +97,8 @@ function CharacterModal() {
               {character.character.location.dimension}
             </InformationH3>
             <InformationSmall>
-              {character.character.location.residents.length} residents
+              <People /> {character.character.location.residents.length}{" "}
+              residents
             </InformationSmall>
           </InformationBlock>
         </CharacterInfo>

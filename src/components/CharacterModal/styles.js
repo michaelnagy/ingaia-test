@@ -76,19 +76,20 @@ export const CharactersPageContainer = styled.div`
 `;
 
 export const CharacterPageCard = styled.div`
-  position: relative;
   width: 70%;
   flex: 1.5;
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(30px);
   border-radius: 16px 0 0 16px;
   display: flex;
-  align-items: center;
+  align-items: start;
+  flex-direction: column;
   ${mobile} {
     border-radius: 16px 16px 0 0;
     max-height: 55px;
     width: 100%;
     justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -105,12 +106,12 @@ export const CharacterInfo = styled.div`
 
 export const CharacterWrapper = styled.div`
   position: relative;
-  margin: 12px;
+  margin: 0;
   ${nunito16Bold};
   ${flexColumn};
   justify-content: center;
   width: 100%;
-  height: 90%;
+  height: 80%;
   border: 2px solid #606060;
   border-radius: 8px;
   overflow: hidden;
@@ -148,4 +149,15 @@ export const NameTitle = styled.div`
 export const NameSubTitle = styled.div`
   ${nunito12};
   padding: 0 7px 7px 7px;
+`;
+
+export const CloseModal = styled.button`
+  height: 40px;
+  margin: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  width: 85px;
+  background: transparent;
+  color: white;
+  ${nunito16};
 `;
