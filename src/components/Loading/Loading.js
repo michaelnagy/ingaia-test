@@ -4,7 +4,7 @@ import image from "../../assets/loading-bg.jpeg";
 
 export function Loading() {
   return (
-    <LoadingWrapper>
+    <LoadingWrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <LoadingContent>
         <LoadingCard>
           <img src={image} alt="Loading" />
