@@ -50,7 +50,12 @@ function CharacterModal() {
   const episodeDate = character.character.episode[episodeNumber]["air_date"];
 
   return (
-    <FixedWrapper>
+    <FixedWrapper
+      key="modal"
+      initial={{ height: 0 }}
+      animate={{ height: "100vh" }}
+      exit={{ height: 0 }}
+    >
       <CharactersPageContainer>
         <CharacterPageCard>
           <OnMobile hide>

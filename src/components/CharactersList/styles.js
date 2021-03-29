@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import {
   flexRow,
   flexColumn,
@@ -26,7 +27,7 @@ export const CharactersListWrapper = styled.ul`
   }
 `;
 
-export const CharacterWrapper = styled.li`
+export const CharacterWrapper = styled(motion.li)`
   position: relative;
   margin: 12px;
   ${nunito16Bold};

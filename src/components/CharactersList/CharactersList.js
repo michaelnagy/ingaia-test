@@ -23,7 +23,11 @@ export function CharacterCard(props) {
     character: { image, name, type },
   } = props;
   return (
-    <CharacterWrapper onClick={() => setCharacter(props)}>
+    <CharacterWrapper
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      onClick={() => setCharacter(props)}
+    >
       <img src={image} alt={name} />
       <NameWrapper>
         <NameTitle>{name}</NameTitle>
