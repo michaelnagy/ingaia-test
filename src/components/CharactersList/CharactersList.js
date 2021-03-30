@@ -19,6 +19,7 @@ import { CharacterContext } from "../../context";
 
 export function CharacterCard(props) {
   const [, setCharacter] = React.useContext(CharacterContext);
+
   const {
     character: { image, name, type },
   } = props;
@@ -27,6 +28,7 @@ export function CharacterCard(props) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       onClick={() => setCharacter(props)}
+      tabIndex={0}
     >
       <img src={image} alt={name} />
       <NameWrapper>
